@@ -1,0 +1,12 @@
+#news-post-content {
+  padding: 1rem 2.5rem;
+}
+#post-headline {
+  margin-bottom: 1.5rem;
+}
+
+#post-picture {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
