@@ -3,7 +3,9 @@ import { Chip, Avatar } from "@mui/material";
 import "./shared-with.css";
 import { ISharedWithProps } from "../interfaces";
 
-const SharedWith: React.FC<ISharedWithProps> = ({ sharedWith }) => {
+const SharedWith: React.FC<ISharedWithProps> = (props) => {
+  const { sharedWith } = props;
+
   const noOfShares = sharedWith.length; // number of users whom post have been shared with
   return (
     <dl

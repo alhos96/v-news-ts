@@ -25,12 +25,8 @@ const CustomButton = styled(Button)`
   }
 `;
 
-const ToggleButton: React.FC<IToggleButtonProps> = ({
-  icon,
-  clickHandler,
-  label,
-  styles,
-}) => {
+const ToggleButton: React.FC<IToggleButtonProps> = (props) => {
+  const { icon, clickHandler, label, styles } = props;
   return (
     <CustomButton
       aria-hidden="true"
@@ -45,21 +41,3 @@ const ToggleButton: React.FC<IToggleButtonProps> = ({
 };
 
 export default ToggleButton;
-
-{
-  /* <>
-<button
-  className="link-button more-less-comments-button"
-  onClick={() => setNoOfCommentsVisible(5)}
->
-  <img
-    className="icon more-less-comments-button-icon"
-    alt=""
-    aria-hidden="true"
-    src={hideComments}
-  />
-  <span>Hide comments</span>
-</button>
-
-</> */
-}

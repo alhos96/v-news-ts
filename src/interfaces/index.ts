@@ -10,6 +10,12 @@ export interface IPost {
   likes: { likedBy: string }[];
 }
 
+export interface INewsPostProps {
+  barData: IBarData;
+  postData: IPostData;
+  commentData: IComment[];
+}
+
 export interface IIcon {
   icon: any;
   label: string;

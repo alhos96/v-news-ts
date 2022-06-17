@@ -2,7 +2,8 @@ import { IconButton } from "@mui/material";
 
 import { IActionIconsProps } from "../interfaces";
 
-const ActionIcons: React.FC<IActionIconsProps> = ({ icons }) => {
+const ActionIcons: React.FC<IActionIconsProps> = (props) => {
+  const { icons } = props;
   return (
     <div className="action-icons">
       {icons?.map((icon, i) => {

@@ -4,12 +4,9 @@ import "./article-bar.css";
 import TimePosted from "./TimePosted";
 import { IBarData } from "../interfaces";
 
-const ArticleBar: React.FC<IBarData> = ({
-  avatar,
-  username,
-  date,
-  timePosted = "07:45",
-}) => {
+const ArticleBar: React.FC<IBarData> = (props) => {
+  const { avatar, username, date, timePosted = "07:45" } = props; // NewsPost.tsx
+
   return (
     <header className="bar" id="article-header-bar">
       <Avatar

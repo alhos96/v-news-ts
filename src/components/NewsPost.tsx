@@ -2,34 +2,19 @@ import React, { useState } from "react";
 import { CommentRounded, CommentsDisabled } from "@mui/icons-material";
 
 import "./news-post.css";
-import { IBarData, IPostData, IComment } from "../interfaces";
+import { INewsPostProps } from "../interfaces";
+import { handleHideClick, handleShowAllClick } from "./newsPostHelpers";
 import ArticleBar from "./ArticleBar";
 import Comment from "./Comment";
 import Post from "./Post";
 import ToggleButton from "./ToggleButton";
 
-interface IProps {
-  barData: IBarData;
-  postData: IPostData;
-  commentData: IComment[];
-}
+const NewsPost: React.FC<INewsPostProps> = (props) => {
+  const { barData, postData, commentData } = props; // App.tsx
 
-const NewsPost: React.FC<IProps> = ({ barData, postData, commentData }) => {
   let totalNoOfComments = commentData.length;
-  const [noOfCommentsVisible, setNoOfCommentsVisible] = useState(5);
-
-  const handleShowAllCommentsClick = (
-    setNoOfCommentsVisible: (arg: number) => void,
-    totalNoOfComments: number
-  ) => {
-    setNoOfCommentsVisible(totalNoOfComments);
-  };
-
-  const handleHideComments = (
-    setNoOfCommentsVisible: (arg: number) => void
-  ) => {
-    setNoOfCommentsVisible(5);
-  };
+  const initialNum = 5; // deafult number of comments to show
+  const [noOfCommentsVisible, setNoOfCommentsVisible] = useState(initialNum);
 
   return (
     <article aria-label="news post" id="comment" className="news-post">
@@ -47,7 +32,7 @@ const NewsPost: React.FC<IProps> = ({ barData, postData, commentData }) => {
       />
 
       {
-        /** When there are more comments than initial value of 5 display "Show more comments" button
+        /** When there are more comments than initial value of initialNum display "Show more comments" button
          *
          *  When "Show all comments" is clicked, set noOfCommentsVisible to be equal to all available comments, than "Hide comments" button will be shown.
          *
@@ -60,10 +45,7 @@ const NewsPost: React.FC<IProps> = ({ barData, postData, commentData }) => {
               icon={<CommentRounded />}
               label="Show all comments"
               clickHandler={() =>
-                handleShowAllCommentsClick(
-                  setNoOfCommentsVisible,
-                  totalNoOfComments
-                )
+                handleShowAllClick(setNoOfCommentsVisible, totalNoOfComments)
               }
               styles={{ fontSize: "1rem" }}
             />
@@ -72,17 +54,20 @@ const NewsPost: React.FC<IProps> = ({ barData, postData, commentData }) => {
         )
       }
 
-      {noOfCommentsVisible === totalNoOfComments && totalNoOfComments !== 5 && (
-        <>
-          <ToggleButton
-            icon={<CommentsDisabled />}
-            label="Hide comments"
-            clickHandler={() => handleHideComments(setNoOfCommentsVisible)}
-            styles={{ fontSize: "1rem" }}
-          />
-          <hr className="divider comment-divider"></hr>
-        </>
-      )}
+      {noOfCommentsVisible === totalNoOfComments &&
+        totalNoOfComments !== initialNum && (
+          <>
+            <ToggleButton
+              icon={<CommentsDisabled />}
+              label="Hide comments"
+              clickHandler={() =>
+                handleHideClick(setNoOfCommentsVisible, initialNum)
+              }
+              styles={{ fontSize: "1rem" }}
+            />
+            <hr className="divider comment-divider"></hr>
+          </>
+        )}
 
       <div role="feed" aria-label="comments">
         {totalNoOfComments === 0 ? (
@@ -91,12 +76,13 @@ const NewsPost: React.FC<IProps> = ({ barData, postData, commentData }) => {
           // eslint-disable-next-line
           commentData.map((comment, i) => {
             if (i < noOfCommentsVisible)
+              // initialy its 5 comments, but when "Show all comments" is clicked, it will be equal to totalNoOfComments
               return (
                 <Comment
                   key={i}
                   currentCommentPosition={i}
                   numberOfComments={commentData.length}
-                  timePosted="08:35"
+                  timePosted="08:3initialNum"
                   avatar={comment.avatar}
                   username={comment.creator}
                   date={comment.date}

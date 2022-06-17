@@ -5,12 +5,9 @@ import { IPostData } from "../interfaces";
 import SharedWith from "./SharedWith";
 import ActionIcons from "./ActionIcons";
 
-const Post: React.FC<IPostData> = ({
-  headline,
-  postText,
-  postPicture,
-  sharedWith,
-}) => {
+const Post: React.FC<IPostData> = (props) => {
+  const { headline, postText, postPicture, sharedWith } = props; // NrewsPost.tsx
+
   return (
     <>
       <div id="news-post-content">

@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Comment } from "@mui/icons-material";
 
 import ToggleButton from "../components/ToggleButton";
 
@@ -13,4 +14,7 @@ const Template: ComponentStory<typeof ToggleButton> = (args) => (
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  icon: <Comment />,
+  label: "Show all comments",
+};

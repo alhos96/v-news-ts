@@ -5,17 +5,20 @@ import { Edit, Delete } from "@mui/icons-material";
 import "./comment.css";
 import ActionIcons from "./ActionIcons";
 import ToggleButton from "./ToggleButton";
+import TimePosted from "./TimePosted";
 import { ICommentProps } from "../interfaces";
 
-const Comment: React.FC<ICommentProps> = ({
-  avatar,
-  username,
-  date,
-  timePosted,
-  commentText,
-  numberOfComments,
-  currentCommentPosition,
-}) => {
+const Comment: React.FC<ICommentProps> = (props) => {
+  const {
+    avatar,
+    username,
+    date,
+    timePosted,
+    commentText,
+    numberOfComments,
+    currentCommentPosition,
+  } = props; // NewsPost.tsx
+
   const [showMore, setShowMore] = useState(true);
 
   return (
@@ -33,9 +36,7 @@ const Comment: React.FC<ICommentProps> = ({
             {username}
           </p>
 
-          <p id="comment-date">
-            {date} {timePosted}
-          </p>
+          <TimePosted date={date} timePosted={timePosted} />
 
           <ActionIcons
             icons={[
