@@ -59,6 +59,11 @@ export interface IBarData {
   timePosted?: string;
 }
 
+export interface IDateTimeProps {
+  date: string;
+  timePosted: string;
+}
+
 export interface IPostData {
   headline: string;
   postText: string;

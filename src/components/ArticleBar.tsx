@@ -1,6 +1,7 @@
 import { Avatar } from "@mui/material";
 
 import "./article-bar.css";
+import TimePosted from "./TimePosted";
 import { IBarData } from "../interfaces";
 
 const ArticleBar: React.FC<IBarData> = ({
@@ -23,18 +24,10 @@ const ArticleBar: React.FC<IBarData> = ({
         className="username"
         id="post-username"
         tabIndex={0}
-      >
-        {username}
-      </p>
+        children={username}
+      />
 
-      {/** set aria label to be how long agp was post created */}
-      <p
-        aria-label={`time posted ${date} ${timePosted}`}
-        id="post-date"
-        tabIndex={0}
-      >
-        {date} {timePosted}
-      </p>
+      <TimePosted date={date} timePosted={timePosted} />
     </header>
   );
 };
