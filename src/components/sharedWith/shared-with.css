@@ -6,7 +6,8 @@
   display: flex;
   flex: 5;
   align-items: center;
-  max-width: 500px;
+  width: 100px;
+  max-width: 700px;
   background-color: white;
 }
 
@@ -23,7 +24,7 @@
 dt {
   font-weight: 500;
   font-size: 0.9rem;
-  padding: 1rem 0.1rem;
+  padding: 0.5rem 0.1rem;
   margin-right: 0.3rem;
   position: sticky;
   left: 0;
@@ -34,18 +35,28 @@ dt {
 
 #shared-with-chip {
   font-size: 0.7rem;
-  width: 5rem;
+  width: 4.5rem;
   max-width: 7rem;
-  height: 2rem;
+  height: 1.8rem;
   margin-left: 0.3rem;
   z-index: 0;
 }
 
-#shared-with-chip > div {
-  height: 25px;
+@media only screen and (min-width: 514px) {
+  .scrolable-shared-with-list {
+    overflow-x: auto;
+  }
+
+  #shared-with-chip {
+    font-size: 0.7rem;
+    width: 6rem;
+  }
 }
 
-#shared-with-avatar {
-  height: 1.3rem;
-  width: 1.3rem;
+.MuiChip-label {
+  padding: 0.2rem !important;
+}
+
+#shared-with-chip > div {
+  height: 25px;
 }

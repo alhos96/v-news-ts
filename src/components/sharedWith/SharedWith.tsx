@@ -1,7 +1,8 @@
-import { Chip, Avatar } from "@mui/material";
+import { Chip } from "@mui/material";
 
 import "./shared-with.css";
-import { ISharedWithProps } from "../interfaces";
+import Avatar from "../avatar/Avatar";
+import { ISharedWithProps } from "../../interfaces";
 
 const SharedWith: React.FC<ISharedWithProps> = (props) => {
   const { sharedWith } = props;
@@ -11,7 +12,7 @@ const SharedWith: React.FC<ISharedWithProps> = (props) => {
     <dl
       title="Shared with"
       id="shared-with-list"
-      className={noOfShares >= 3 ? "scrolable-shared-with-list" : ""}
+      className={noOfShares >= 2 ? "scrolable-shared-with-list" : ""}
       tabIndex={0}
     >
       <dt>Shared with:</dt>
@@ -22,9 +23,12 @@ const SharedWith: React.FC<ISharedWithProps> = (props) => {
         sharedWith.map((share, i) => (
           <dd key={i} id="shared-with-chip">
             <Chip
-              avatar={
-                <Avatar alt="" src={share.avatar} id="shared-with-avatar" />
-              }
+              sx={{
+                border: "1px solid gray",
+                borderRadius: "5px",
+                background: "transparent",
+              }}
+              avatar={<Avatar src={share.avatar} height={1.3} width={1.3} />}
               label={share.name}
             />
           </dd>

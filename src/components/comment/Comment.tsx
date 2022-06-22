@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { Avatar } from "@mui/material";
 import { Edit, Delete } from "@mui/icons-material";
 
 import "./comment.css";
-import ActionIcons from "./ActionIcons";
-import ToggleButton from "./ToggleButton";
-import TimePosted from "./TimePosted";
-import { ICommentProps } from "../interfaces";
+import ActionIcons from "../ActionIcons";
+import Avatar from "../avatar/Avatar";
+import ToggleButton from "../toggleButton/ToggleButton";
+import DateTime from "../dateTime/DateTime";
+import { ICommentProps } from "../../interfaces";
 
 const Comment: React.FC<ICommentProps> = (props) => {
   const {
     avatar,
     username,
     date,
-    timePosted,
     commentText,
     numberOfComments,
     currentCommentPosition,
@@ -25,7 +24,7 @@ const Comment: React.FC<ICommentProps> = (props) => {
     <>
       <article aria-label="comment" id="comment-wrapp">
         <div className="bar" id="comment-info-bar">
-          <Avatar className="avatar" id="comment-avatar" src={avatar} alt="" />
+          <Avatar src={avatar} height={2.2} width={2.2} />
 
           <p
             className="username"
@@ -36,7 +35,7 @@ const Comment: React.FC<ICommentProps> = (props) => {
             {username}
           </p>
 
-          <TimePosted date={date} timePosted={timePosted} />
+          <DateTime date={date} id="comment-date" />
 
           <ActionIcons
             icons={[

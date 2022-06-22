@@ -1,19 +1,26 @@
 import { ThumbUp, Comment, Share } from "@mui/icons-material";
 
 import "./post.css";
-import { IPostData } from "../interfaces";
-import SharedWith from "./SharedWith";
-import ActionIcons from "./ActionIcons";
+import { IPostData } from "../../interfaces";
+import SharedWith from "../sharedWith/SharedWith";
+import ActionIcons from "../ActionIcons";
 
 const Post: React.FC<IPostData> = (props) => {
-  const { headline, postText, postPicture, sharedWith } = props; // NrewsPost.tsx
+  const {
+    headline,
+    postText,
+    postPicture,
+    sharedWith,
+    noOfLikes,
+    noOfComments,
+  } = props; // NrewsPost.tsx
 
   return (
     <>
       <div id="news-post-content">
         {headline && (
           <h5 id="post-headline" tabIndex={0}>
-            {headline && headline}
+            {headline}
           </h5>
         )}
 
@@ -36,8 +43,12 @@ const Post: React.FC<IPostData> = (props) => {
 
           <ActionIcons
             icons={[
-              { icon: <ThumbUp />, label: "like" },
-              { icon: <Comment />, label: "comment" },
+              { icon: <ThumbUp />, label: "like", noOfLikes: noOfLikes },
+              {
+                icon: <Comment />,
+                label: "comment",
+                noOfComments: noOfComments,
+              },
               { icon: <Share />, label: "share" },
             ]}
           />

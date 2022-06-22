@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 
 import "./toggle-button.css";
-import { IToggleButtonProps } from "../interfaces";
+import { IToggleButtonProps } from "../../interfaces";
 
 const CustomButton = styled(Button)`
   border: none;
@@ -29,6 +29,7 @@ const ToggleButton: React.FC<IToggleButtonProps> = (props) => {
   const { icon, clickHandler, label, styles } = props;
   return (
     <CustomButton
+      data-testid="toggle-button"
       aria-hidden="true"
       sx={styles}
       variant="text"

@@ -19,6 +19,8 @@ export interface INewsPostProps {
 export interface IIcon {
   icon: any;
   label: string;
+  noOfLikes?: number;
+  noOfComments?: number;
 }
 
 export interface IActionIconsProps {
@@ -62,12 +64,11 @@ export interface IBarData {
   avatar: string;
   username: string;
   date: string;
-  timePosted?: string;
 }
 
 export interface IDateTimeProps {
   date: string;
-  timePosted: string;
+  id?: string;
 }
 
 export interface IPostData {
@@ -75,4 +76,6 @@ export interface IPostData {
   postText: string;
   postPicture: string;
   sharedWith: ISharedWith[];
+  noOfLikes: number;
+  noOfComments: number;
 }

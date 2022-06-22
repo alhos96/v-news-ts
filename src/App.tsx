@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Container } from "@mui/material";
 
-import NewsPost from "./components/NewsPost";
+import NewsPost from "./components/newsPost/NewsPost";
 import { IPost } from "./interfaces/index";
+import Loader from "./components/Loader";
+import DisplayError from "./components/DisplayError";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,21 +24,22 @@ function App() {
         setLoading(false);
       }
     }
+
     fetchData();
 
     return () => {};
   }, []);
 
   if (loading) {
-    return <div>loading</div>;
+    return <Loader message="Data not available" timeout={30000} />;
   }
 
   if (error) {
-    return <div>something wrong</div>;
+    return <DisplayError message="Something went wrong" />;
   }
 
   return (
-    <div className="news-stream" role="feed">
+    <Container aria-busy={loading} className="news-stream" role="feed">
       {posts &&
         posts.map((post, i) => {
           return (
@@ -51,12 +55,14 @@ function App() {
                 postText: post.post_text,
                 postPicture: post.post_image,
                 sharedWith: post.shared_with,
+                noOfLikes: post.likes.length,
+                noOfComments: post.comments.length,
               }}
               commentData={post.comments}
             />
           );
         })}
-    </div>
+    </Container>
   );
 }
 

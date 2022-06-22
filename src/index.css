@@ -21,14 +21,6 @@ body {
 
 /* Elements bellow are global classes and are sorted alphabeticaly */
 
-.avatar {
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 1px -1px 5px 1px rgba(146, 152, 155, 0.2);
-}
-
 .bar {
   display: flex;
   justify-content: space-between;

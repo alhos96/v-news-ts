@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Comment } from "@mui/icons-material";
 
-import ToggleButton from "../components/ToggleButton";
+import ToggleButton from "../components/toggleButton/ToggleButton";
 
 export default {
   component: ToggleButton,

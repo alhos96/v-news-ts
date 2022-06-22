@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { CommentRounded, CommentsDisabled } from "@mui/icons-material";
 
 import "./news-post.css";
-import { INewsPostProps } from "../interfaces";
+import { INewsPostProps } from "../../interfaces";
 import { handleHideClick, handleShowAllClick } from "./newsPostHelpers";
-import ArticleBar from "./ArticleBar";
-import Comment from "./Comment";
-import Post from "./Post";
-import ToggleButton from "./ToggleButton";
+import ArticleBar from "../articleBar/ArticleBar";
+import Comment from "../comment/Comment";
+import Post from "../post/Post";
+import ToggleButton from "../toggleButton/ToggleButton";
 
 const NewsPost: React.FC<INewsPostProps> = (props) => {
   const { barData, postData, commentData } = props; // App.tsx
@@ -29,6 +29,8 @@ const NewsPost: React.FC<INewsPostProps> = (props) => {
         postText={postData.postText}
         postPicture={postData.postPicture}
         sharedWith={postData.sharedWith}
+        noOfComments={postData.noOfComments}
+        noOfLikes={postData.noOfLikes}
       />
 
       {

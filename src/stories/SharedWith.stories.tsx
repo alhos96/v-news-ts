@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import SharedWith from "../components/SharedWith";
+import SharedWith from "../components/sharedWith/SharedWith";
 
 export default {
   component: SharedWith,

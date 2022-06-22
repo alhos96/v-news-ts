@@ -9,14 +9,3 @@
   margin-right: auto;
   margin-left: 0.5rem;
 }
-
-#logged-in-user-avatar {
-  transform: translateY(-1rem);
-}
-
-#post-date {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}

@@ -10,18 +10,15 @@
   margin-bottom: 1.1rem;
 }
 
-#comment-avatar {
-  height: 2.2rem;
-  width: 2.2rem;
-}
-
 #comment-username {
   margin-right: auto;
   margin-left: 0.5rem;
 }
 
 #comment-date {
-  margin-right: 0.5rem;
+  margin-right: auto;
+  margin-left: 00.5rem;
+  flex: 2;
 }
 
 #comment-divider {
